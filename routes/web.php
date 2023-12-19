@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Start CRUD setup
+Route::resource('posts', PostController::class);
+// End CRUD setup
+
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 // Route::view('/welcome', 'welcome');
 
-Route::get('/home', function () {
-    return view('home');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
 
 
 // Setup routes
@@ -37,9 +42,9 @@ Route::get('/home', function () {
 // Route::view('/welcome', 'welcome', ['name' => "Taylor"]);
 
 // From router to controller
-Route::get('/blade-syntax/{num}', function ($num) {
-    return view('blade-syntax', ['num' => $num]);
-});
+// Route::get('/blade-syntax/{num}', function ($num) {
+//   return view('blade-syntax', ['num' => $num]);
+// });
 // Route::get('/user', [UserController::class, 'index']);
 
 // Route parameters
